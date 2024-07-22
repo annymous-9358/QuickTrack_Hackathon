@@ -4,22 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuickTrack</title>
-    <link rel="stylesheet" href="styles/style.css" />
+
+    <link rel="stylesheet" href="/assets/index.3136d3ed.css" />
   </head>
   <body>
     <header>
       <h1>QuickTrack</h1>
+      <nav>
+        <button id="show-tracker">Tracker</button>
+        <button id="show-analytics">Analytics</button>
+      </nav>
     </header>
     <main>
       <section id="tracker">
-        <button id="start-timer">Start New Session</button>
-        <div id="timer-form" style="display: none">
-          <input type="text" id="task-desc" placeholder="Task Description" />
-          <div id="timer-display">00:00:00</div>
+        <div id="timer-options" class="flex-container">
+          <div class="flex-item">
+            <label for="timer-name">Timer Name:</label>
+            <input type="text" id="timer-name" placeholder="Enter timer name" />
+          </div>
+          <div class="flex-item">
+            <button id="start-timer">Start Timer</button>
+          </div>
+        </div>
+        <div id="timer-form" class="hidden">
+          <div id="timer-clock" class="hidden">
+            <div id="timer-display">00:00:00</div>
+          </div>
           <button id="stop-timer">Stop Timer</button>
         </div>
         <button id="manual-entry-toggle">Log Past Event</button>
-        <div id="manual-entry-form" style="display: none">
+        <div id="manual-entry-form" class="hidden">
           <input
             type="text"
             id="manual-task-desc"
@@ -34,12 +48,16 @@
         <h2>Activity Logs</h2>
         <ul id="log-list"></ul>
       </section>
-      <section id="analytics">
+      <section id="analytics" class="hidden">
         <h2>Analytics</h2>
+        <div id="analytics-details" class="hidden">
+          <h3>Detailed Log View</h3>
+          <ul id="detailed-log-list"></ul>
+        </div>
         <canvas id="analytics-chart"></canvas>
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
